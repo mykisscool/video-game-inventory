@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /relative/path/to/application
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ api/index.php [QSA,L]

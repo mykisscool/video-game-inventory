@@ -1,0 +1,148 @@
+body { background:#ececec; font-family:"Lato"; padding-top:70px; }
+
+/* Navigation bar */
+.navbar-default { background:#fff688; border:0 none; box-shadow:0 4px 2px -2px rgba(0, 0, 0, 0.2); }
+
+/* Right links */
+#navbar-collapse .navbar-nav a { color:#333; cursor:pointer; }
+#navbar-collapse .navbar-nav a:hover { background:#fef9bc;  }
+
+/* Collapse icon */
+.navbar-default .navbar-toggle:hover { background:#fef9bc; } 
+.navbar-default .navbar-toggle { border:0 none; }
+.navbar-header .navbar-toggle .icon-bar { background:#333; }
+
+/* Drop down menus */
+#navbar-collapse { border:0 none; }
+.dropdown.open .dropdown-menu { border:0 none; }
+.navbar-default .navbar-nav > .open > a:focus { background:#fef9bc; }
+
+/* Brand link and icon */
+.navbar-brand h1 { color:#333; font-family:"Press Start 2P"; display:inline; font-size:14px; text-shadow:1px 1px 1px rgba(30, 30, 30, 0.25); }
+.navbar-brand i { display:none; margin-top:-10px; color:#333; }
+.navbar-brand:hover h1 { text-shadow:3px 3px 3px rgba(255, 255, 255, 0.75); }
+
+@media screen and (max-width: 500px) {
+	a.navbar-brand i { display:inline-block; }
+	header nav a.navbar-brand h1 { display:none; }
+}
+
+/* About Modal */
+.modal-title i { margin-right:7px; }
+
+/* Dashboard */
+.box { padding:15px; margin-bottom:20px; background:#fff; position:relative; box-shadow:0 4px 2px -2px rgba(0, 0, 0, 0.2); }
+.row-1 .box { height:110px; color:#fff; text-shadow: 0px 1px rgba(136, 136, 136, 0.50); background-size:100%; background-repeat:repeat-x; box-shadow:0 3px 1px -1px #ccc; }
+.row-1 .box .icon { font-size:5em; position:absolute; bottom:8px; right:15px; color:#fff; opacity:0.25; }
+h4 { font-size:16px; margin:0 0 5px; text-shadow:1px 1px 1px rgba(60, 60, 60, 0.3); }
+.box h4 i.fa-spinner { margin-left:12px; text-shadow:none; }
+.box h4 + strong { font-size:24px; margin-left:15px; display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+/* Number of Games */
+#number-of-games-box {
+	background-color:#cb0000;
+	background-image:linear-gradient(top, #fe0000, #cb0000);
+}
+#number-of-games-box .icon { bottom:-2px; opacity:0.33; }
+
+/* Number of Systems */
+#number-of-systems-box {
+	position:relative;
+	background-color:#02a118;
+	background-image:linear-gradient(top, #722ec3, #5e1daa);
+}
+
+/* Games Beaten */
+#number-of-games-completed-box {
+	background-color:#00bf1b;
+	background-image:linear-gradient(top, #00bf1b, #02a118);
+}
+#percentage-games-beaten .fa-star { color:#ffd700; text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5); }
+#percentage-games-beaten span { margin-right:5px; }
+#percentage-games-beaten i { font-size:14px; }
+
+/* Favorite System */
+#favorite-system-box .icon { right:10px; }
+#favorite-system-box {
+	background-color:#c29b60;
+	background-image:linear-gradient(top, #c29b60, #a07b43);
+}
+
+/* Favorite Genre */
+#favorite-genre-box {
+	background-color:#ff6cb1;
+	background-image:linear-gradient(top, #ff6cb1, #d24b8a);
+}
+
+/* Last Game Added */
+#last-game-added-box {
+	background-color:#ffb849;
+	background-image:linear-gradient(top, #ffb849, #c07602);
+}
+
+#percentage-games-beaten, 
+#favorite-system-games,
+#favorite-genre-games,
+#last-game-added-date { display:none; font-size:13px; position:absolute; bottom:10px; left:15px; }
+
+/* Row 2 and 3 charts */
+#system-breakdown,
+#genre-breakdown, 
+#video-game-timeline { height:420px; }
+.ct-label { font-size:12px; color:#555; }
+.ct-series-a .ct-point { display:none; }
+.ct-series-a .ct-line { stroke:#063692; stroke-width:3px; stroke-dasharray:5px 2px; animation:dashoffset-seven 400ms infinite linear; }
+
+@keyframes dashoffset-seven {
+	0% { stroke-dashoffset:7px; }
+	100% { stroke-dashoffset: 0px; }
+}
+
+/* Catalog loader */
+.loader { text-align:center; }
+.loader-inner div { background:#333; }
+
+/* DataTable for catalog */
+.dataTables_wrapper table thead tr td, 
+.dataTables_wrapper table thead tr th { border-bottom-width:0; }
+.dataTables_wrapper table tbody td ul li:last-child { padding-bottom:0; }
+#datatable-games caption { padding:0; }
+#datatable-games td { width:40%; }
+#datatable-games td + td { width:20%; }
+#datatable-games td ol { padding-top:5px; }
+#datatable-games .actions { display:none; margin-top:6px; }
+#datatable-games a + a { margin-left:5px; }
+
+/* Search for games button */
+#add-record { display:block; width:55px; height:55px; background:rgba(219, 68, 55, 0.90); position:fixed; bottom:15px; right:0; left:0; margin:auto; border-radius:50%; box-shadow:0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28); cursor:pointer; z-index:2; }
+#add-record i { color:#fff; display:block; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); }
+
+/* Search form overlay */
+#search-form { position:fixed; top:0; left:0; width:100%; height:100%; padding:15px; overflow-y:auto; background:rgba(254, 254, 254, 0.97); z-index:1031; }
+#search-form form .form-group { margin:4px 0 15px; width:100%; }
+#search-form form .input-group { width:100%; }
+#close-form { display:block; font-size:1.5em; cursor:pointer; position:absolute; top:10px; right:10px; }
+#search-form input[name="name"] { display:none; }
+button i { margin-right:5px; }
+.fa-circle-o-notch { display:none; }
+#search-instructions { margin:15px 0 0; }
+#search-instructions dd { margin-top:3px;  }
+
+/* Search form results DataTable */
+#datatable-search-results_wrapper { margin:15px 0 20px; }
+#datatable-search-results td { width:45%; }
+#datatable-search-results td + td { width:30%; }
+#datatable-search-results td + td + td { width:25%; }
+#datatable-search-results .btn-xs { font-size:11px; line-height:1.4; }
+#datatable-search-results td .fa { line-height:20px; margin-right:9px; }
+
+/* Magnific-Popup */
+.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close { cursor:pointer; }
+
+/* Edit game modal */
+#edit-modal .modal-content p { margin:0 0 -5px; }
+#edit-modal select { cursor:pointer; }
+
+/* Pink highlight */
+::-moz-selection { background:#d53880; color:#fff; }
+::selection { background:#d53880; color:#fff; }

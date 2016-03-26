@@ -1,0 +1,29 @@
+{
+  "name": "video-game-inventory",
+  "version": "1.0.0",
+  "authors": [
+    "Mike Petruniak <mike.petruniak@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "http://mikepetruniak.com/",
+  "dependencies": {
+    "handlebars": "~4.0.5",
+    "chartist": "~0.9.4",
+    "countUp.js": "~1.5.3",
+    "fontawesome": "~4.4.0",
+    "hover": "Hover#~2.0.2",
+    "jquery": "~2.2.0",
+    "datatables": "~1.10.10",
+    "datatables-responsive": "~2.0.1",
+    "bootstrap": "~3.3.6",
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.3",
+    "backbone.validation": "~0.7.1",
+    "moment": "~2.11.1",
+    "loaders.css": "~0.1.2",
+    "magnific-popup": "^1.1.0"
+  },
+  "ignore": [],
+  "private": true,
+  "devDependencies": {}
+}

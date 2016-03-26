@@ -1,0 +1,27 @@
+<td data-game="{{id}}">
+	{{title}}
+	<div class="actions">
+		{{#if image}}
+		<a data-mfp-src="../src/img/{{id}}/{{image}}" class="fa-stack hvr-pop view-artwork">
+			<i class="fa fa-circle fa-stack-2x text-success"></i>
+			<i class="fa fa-picture-o fa-stack-1x fa-inverse"></i>
+		</a>
+		{{/if}}
+		<a class="fa-stack hvr-pop edit-game">
+			<i class="fa fa-circle fa-stack-2x text-primary"></i>
+			<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+		</a>
+		<a class="fa-stack hvr-pop delete-game">
+			<i class="fa fa-circle fa-stack-2x text-danger"></i>
+			<i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+		</a>			
+	</div>
+</td>
+<td>{{system}}</td>
+<td>{{{prettyList genre}}}</td>
+<td>{{{prettyList developer}}}</td>
+<td>{{#if description}}{{description}}{{else}}-{{/if}}</td>
+<td>{{{prettyDate released_on}}}</td>
+<td>{{#if completed}}Yes{{else}}No{{/if}}</td>
+<td>{{#if notes}}{{notes}}{{else}}-{{/if}}</td>
+<td>{{{prettyDate updated_at}}}</td>
