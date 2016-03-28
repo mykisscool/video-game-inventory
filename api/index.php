@@ -10,9 +10,9 @@
 	$vga->hook('slim.before.dispatch', function () {
 
 		$dbhost = 'localhost';
-    	$dbname = 'video_game_inventory';
-    	$dbuser = 'video_gamer';
-    	$dbpass = 'mikeiscool!';
+		$dbname = 'video_game_inventory';
+		$dbuser = 'video_gamer';
+		$dbpass = 'mikeiscool!';
 
 		R::setup("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 	});
@@ -293,7 +293,7 @@ EOD;
 
 		// Create a range of years your games were released
 		$sql_years_range = <<<EOD
-SELECT MIN(YEAR(released_on)) AS min_year_released, MAX(YEAR(released_on)) AS max_year_released
+SELECT MIN(YEAR(released_on)) AS min_year_released, YEAR(CURDATE()) AS max_year_released
 FROM game
 EOD;
 
