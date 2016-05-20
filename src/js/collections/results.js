@@ -1,3 +1,3 @@
 var Results = Backbone.Collection.extend({
-	model: Result
+  model: Result
 });
