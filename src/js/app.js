@@ -247,7 +247,7 @@ if (document.getElementById('catalog')) {
   games.fetch({
     success: function () {
       var gamesView = new GamesView({ collection: games }),
-        inventory = gamesView.render().$parent;
+          inventory = gamesView.render().$parent;
 
       $('.loader').fadeOut(200, function () {
         $('.box', '#catalog').append($(inventory).fadeIn(400));
