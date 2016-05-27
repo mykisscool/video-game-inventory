@@ -19,7 +19,7 @@
 									<i class="fa fa-television"></i>
 								</div>								
 								<h4>Favorite System</h4>
-								<strong><i class="fa fa-spinner fa-pulse"></i></strong>
+								<strong><i class="fa fa-spinner fa-spin"></i></strong>
 								<span id="favorite-system-games"></span>
 							</div>
 						</div> 
@@ -42,7 +42,7 @@
 									<i class="fa fa-bookmark"></i>
 								</div>								
 								<h4>Favorite Genre</h4>
-								<strong><i class="fa fa-spinner fa-pulse"></i></strong>
+								<strong><i class="fa fa-spinner fa-spin"></i></strong>
 								<span id="favorite-genre-games"></span>
 							</div>
 						</div> 
@@ -73,7 +73,7 @@
 									<i class="fa fa-plus"></i>
 								</div>								
 								<h4>Last Game Added</h4>
-								<strong><i class="fa fa-spinner fa-pulse"></i></strong>
+								<strong><i class="fa fa-spinner fa-spin"></i></strong>
 								<span id="last-game-added-date"></span>
 							</div><!-- #last-game-added -->
 						</div> 
@@ -85,13 +85,13 @@
 					<div class="row">
 						<div class="col-xs-12 col-lg-6">
 							<div id="system-breakdown-box" class="box">
-								<h4>Top Systems Breakdown<i class="fa fa-spinner fa-pulse"></i></h4>
+								<h4>Top Systems Breakdown<i class="fa fa-spinner fa-spin"></i></h4>
 								<div id="system-breakdown"></div>
 							</div>
 						</div>
 						<div class="col-xs-12 col-lg-6">
 							<div id="genre-breakdown-box" class="box">
-								<h4>Top Genres Breakdown<i class="fa fa-spinner fa-pulse"></i></h4>
+								<h4>Top Genres Breakdown<i class="fa fa-spinner fa-spin"></i></h4>
 								<div id="genre-breakdown"></div>
 							</div>
 						</div>
@@ -101,7 +101,7 @@
 			<div class="row row-3">
 				<div class="col-xs-12">
 					<div id="video-game-timeline-box" class="box">
-						<h4>Video Game Timeline<i class="fa fa-spinner fa-pulse"></i></h4>
+						<h4>Video Game Timeline<i class="fa fa-spinner fa-spin"></i></h4>
 						<div id="video-game-timeline"></div>
 					</div>
 				</div> <!-- // col-xs-12 -->

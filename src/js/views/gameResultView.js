@@ -18,7 +18,7 @@ var GameResultView = Backbone.View.extend({
       method: 'get',
       url: '../api/giantbomb/get/' + this.model.get('id'),
       beforeSend: function () {
-        $(e.target).hide().after('<i class="fa fa-spinner fa-pulse pull-right"></i>');
+        $(e.target).hide().after('<i class="fa fa-spinner fa-spin pull-right"></i>');
       },
       success: function (response) {
         var results, properties = {};
