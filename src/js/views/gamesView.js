@@ -19,7 +19,9 @@ var GamesView = Backbone.View.extend({
       order: [[ 8, 'desc' ]],
       pageLength: 50,
       language: {
-        emptyTable: 'No games here ...'
+        emptyTable: 'No games here ...',
+        zeroRecords: 'No filter results here ...',
+        search: 'Filter:'
       },
       initComplete: function () {
         var table = this;
