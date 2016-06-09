@@ -31,7 +31,7 @@ It's an application that primarily uses [Slim](http://www.slimframework.com), [R
 
 ##### MySQL setup
 
-	mysql -u root -p -e "CREATE DATABASE video_game_inventory"
+    mysql -u root -p -e "CREATE DATABASE video_game_inventory"
     mysql -u root -p video_game_inventory < src/sql/video-game-inventory.sql
 
 And don't forget to sign up for your [Giant Bomb API key](https://auth.giantbomb.com/signup)!

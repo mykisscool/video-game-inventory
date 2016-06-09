@@ -232,7 +232,6 @@ SELECT genre
 FROM game
 WHERE genre != ''
 AND genre IS NOT NULL
-GROUP BY genre
 EOD;
     $genres = R::getCol($sql);
 
@@ -310,7 +309,7 @@ EOD;
     $data->series = [];
 
     foreach ($data->labels as $year) :
-      $results = R::getRow($sql_games_count, [ ':year_released' => $year ]);
+      $results = R::getRow($sql_games_count, [':year_released' => $year]);
       $data->series[] = (int) $results['num_games'];
     endforeach;
 
