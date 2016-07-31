@@ -23,8 +23,8 @@ body { background:#ececec; font-family:"Lato"; padding-top:70px; }
 .navbar-brand:hover h1 { text-shadow:3px 3px 3px rgba(255, 255, 255, 0.75); }
 
 @media screen and (max-width: 500px) {
-	a.navbar-brand i { display:inline-block; }
-	header nav a.navbar-brand h1 { display:none; }
+  a.navbar-brand i { display:inline-block; }
+  header nav a.navbar-brand h1 { display:none; }
 }
 
 /* About Modal */
@@ -40,22 +40,22 @@ h4 { font-size:16px; margin:0 0 5px; text-shadow:1px 1px 1px rgba(60, 60, 60, 0.
 
 /* Number of Games */
 #number-of-games-box {
-	background-color:#cb0000;
-	background-image:linear-gradient(top, #fe0000, #cb0000);
+  background-color:#cb0000;
+  background-image:linear-gradient(top, #fe0000, #cb0000);
 }
 #number-of-games-box .icon { bottom:-2px; opacity:0.33; }
 
 /* Number of Systems */
 #number-of-systems-box {
-	position:relative;
-	background-color:#02a118;
-	background-image:linear-gradient(top, #722ec3, #5e1daa);
+  position:relative;
+  background-color:#02a118;
+  background-image:linear-gradient(top, #722ec3, #5e1daa);
 }
 
 /* Games Beaten */
 #number-of-games-completed-box {
-	background-color:#00bf1b;
-	background-image:linear-gradient(top, #00bf1b, #02a118);
+  background-color:#00bf1b;
+  background-image:linear-gradient(top, #00bf1b, #02a118);
 }
 #percentage-games-beaten .fa-star { color:#ffd700; text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5); }
 #percentage-games-beaten span { margin-right:5px; }
@@ -64,20 +64,20 @@ h4 { font-size:16px; margin:0 0 5px; text-shadow:1px 1px 1px rgba(60, 60, 60, 0.
 /* Favorite System */
 #favorite-system-box .icon { right:10px; }
 #favorite-system-box {
-	background-color:#c29b60;
-	background-image:linear-gradient(top, #c29b60, #a07b43);
+  background-color:#c29b60;
+  background-image:linear-gradient(top, #c29b60, #a07b43);
 }
 
 /* Favorite Genre */
 #favorite-genre-box {
-	background-color:#ff6cb1;
-	background-image:linear-gradient(top, #ff6cb1, #d24b8a);
+  background-color:#ff6cb1;
+  background-image:linear-gradient(top, #ff6cb1, #d24b8a);
 }
 
 /* Last Game Added */
 #last-game-added-box {
-	background-color:#ffb849;
-	background-image:linear-gradient(top, #ffb849, #c07602);
+  background-color:#ffb849;
+  background-image:linear-gradient(top, #ffb849, #c07602);
 }
 
 #percentage-games-beaten, 
@@ -94,8 +94,8 @@ h4 { font-size:16px; margin:0 0 5px; text-shadow:1px 1px 1px rgba(60, 60, 60, 0.
 .ct-series-a .ct-line { stroke:#063692; stroke-width:3px; stroke-dasharray:5px 2px; animation:dashoffset-seven 400ms infinite linear; }
 
 @keyframes dashoffset-seven {
-	0% { stroke-dashoffset:7px; }
-	100% { stroke-dashoffset: 0px; }
+  0% { stroke-dashoffset:7px; }
+  100% { stroke-dashoffset: 0px; }
 }
 
 /* Catalog loader */
@@ -126,7 +126,7 @@ h4 { font-size:16px; margin:0 0 5px; text-shadow:1px 1px 1px rgba(60, 60, 60, 0.
 button i { margin-right:5px; }
 .fa-circle-o-notch { display:none; }
 #search-instructions { margin:15px 0 0; }
-#search-instructions dd { margin-top:3px;  }
+#search-instructions dd { margin-top:3px; }
 
 /* Search form results DataTable */
 #datatable-search-results_wrapper { margin:15px 0 20px; }
