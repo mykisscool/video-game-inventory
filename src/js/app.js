@@ -225,7 +225,12 @@ if (document.getElementById('catalog')) {
   Handlebars.registerHelper('prettyList', function (list) {
     list = list || '';
 
-    var a = list.toString().replace(', ', ' ').split(',');
+    // Workaround for parsing and splitting a string with commas built in
+    var a = list.replace(new RegExp(', ', 'g'), '||').split(',');
+    for (var i=0; i < a.length; i++) {
+      a[i] = a[i].replace(/\|\|/g, ', ');
+    }
+    
     if (a.length > 1) {
       var h = '<ol>';
       _.each(a, function (g) {
