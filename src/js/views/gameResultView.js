@@ -39,11 +39,11 @@ var GameResultView = Backbone.View.extend({
 
         properties.genre = _.map(results.genres, function (genre) {
           return genre['name'];
-        }).join(',') || null;
+        }).join(',') || null; // @TODO Should NOT have joined on a comma (comma present in genre) ...
 
         properties.developer = _.map(results.developers, function (developer) {
           return developer['name'];
-        }).join(',') || null;
+        }).join(',') || null; // @TODO Should NOT have joined on a comma (comma present in developer) ...
 
         properties.description = ((results.deck === null) ? null : results.deck);
 

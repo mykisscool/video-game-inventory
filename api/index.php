@@ -89,8 +89,8 @@
       if (filter_var($game->image, FILTER_VALIDATE_URL)) :
         
         // Retain state of URL
-        $filename = basename($game->image);
-        $url = $game->image;
+        $filename = urldecode(basename($game->image));
+        $url = urldecode($game->image);
         
         // Update image
         $game->image = $filename;
@@ -355,8 +355,9 @@ EOD;
       CURLOPT_BINARYTRANSFER => TRUE,
       CURLOPT_TIMEOUT => 20,
       CURLOPT_CONNECTTIMEOUT => 20,
-      CURLOPT_URL => $url,
-      CURLOPT_FILE=> $fp
+      CURLOPT_URL => str_replace(' ', '%20', $url),
+      CURLOPT_FILE => $fp,
+      CURLOPT_USERAGENT => 'Video Game Inventory by mykisscool' // Otherwise GiantBomb will think you are a scraper
     ]);
 
     curl_exec($ch);

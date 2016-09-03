@@ -90,6 +90,7 @@ h4 { font-size:16px; margin:0 0 5px; text-shadow:1px 1px 1px rgba(60, 60, 60, 0.
 #genre-breakdown, 
 #video-game-timeline { height:420px; }
 .ct-label { font-size:12px; color:#555; }
+.ct-series-a .ct-area { fill:cyan; }
 .ct-series-a .ct-point { display:none; }
 .ct-series-a .ct-line { stroke:#063692; stroke-width:3px; stroke-dasharray:5px 2px; animation:dashoffset-seven 400ms infinite linear; }
 

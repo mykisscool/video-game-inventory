@@ -147,6 +147,10 @@ if (document.getElementById('dashboard')) {
       series: [ response.series ]
     },
     {
+      showArea: true,
+      lineSmooth: Chartist.Interpolation.simple({
+        divisor: 7
+      }),
       high: _.max(response.series) +1,
       fullWidth: true,
       chartPadding: {
@@ -221,7 +225,7 @@ if (document.getElementById('catalog')) {
   Handlebars.registerHelper('prettyList', function (list) {
     list = list || '';
 
-    var a = list.toString().split(',');
+    var a = list.toString().replace(', ', ' ').split(',');
     if (a.length > 1) {
       var h = '<ol>';
       _.each(a, function (g) {
