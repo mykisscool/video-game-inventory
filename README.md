@@ -2,10 +2,6 @@
 
 It's an application that primarily uses [Slim](http://www.slimframework.com), [RedBean](http://www.redbeanphp.com/), [Backbone.js](http://backbonejs.org), and [DataTables](https://www.datatables.net/) to report on and manage my video game inventory.  Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing a robust and comprehensive API free of charge.
 
-## Easy to use
-
-[DEMO](http://www.mikepetruniak.com/projects/video-game-inventory/)
-
 ## Easy to build & host
 
 ##### Create a local clone of the repository
