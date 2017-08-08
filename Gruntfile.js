@@ -34,8 +34,10 @@ module.exports = function (grunt) {
     },
     bower_concat: {
       bower: {
-        dest: 'dist/<%= pkg.name %>-bower-components.min.js',
-        cssDest: 'dist/<%= pkg.name %>-bower-components.min.css',
+        dest: {
+          js: 'dist/<%= pkg.name %>-bower-components.min.js',
+          css: 'dist/<%= pkg.name %>-bower-components.min.css'
+        },
         mainFiles: {
           fontawesome: 'css/font-awesome.min.css',
           hover: 'css/hover-min.css',
@@ -45,7 +47,7 @@ module.exports = function (grunt) {
             'media/css/dataTables.bootstrap.min.css'
           ],
           bootstrap: [
-            'dist/js/bootstrap.min.js', 
+            'dist/js/bootstrap.min.js',
             'dist/css/bootstrap.min.css'
           ],
           underscore: 'underscore-min.js',
@@ -118,15 +120,15 @@ module.exports = function (grunt) {
           compress: true,
           banner: [
             '/*!',
-            ' * video-game-inventory v1.0.0',
+            ' * video-game-inventory',
             ' * Copyright 2016 Mike Petruniak \<mike.petruniak@gmail.com\>',
             ' * Licensed under the The MIT License (http://opensource.org/licenses/MIT)',
             ' */'].join('\n') + '\n',
         },
         files: {
           'dist/<%= pkg.name %>.min.js': [
-            'src/js/models/*.js', 
-            'src/js/collections/*.js', 
+            'src/js/models/*.js',
+            'src/js/collections/*.js',
             'src/js/views/*.js',
             'src/js/app.js'
           ]
@@ -159,7 +161,7 @@ module.exports = function (grunt) {
           'dist/templates.min.js',
           'dist/<%= pkg.name %>.min.js'
         ],
-        dest: 'dist/<%= pkg.name %>.concat.min.js'
+        dest: 'dist/<%= pkg.name %>.js'
       },
       css: {
         src: [
@@ -168,7 +170,7 @@ module.exports = function (grunt) {
           'dist/dataTables.responsive.min.css',
           'dist/<%= pkg.name %>.min.css'
         ],
-        dest: 'dist/<%= pkg.name %>.concat.min.css'
+        dest: 'dist/<%= pkg.name %>.css'
       }
     },
     copy: {
@@ -215,7 +217,7 @@ module.exports = function (grunt) {
     watch: {
       mine: {
         files: [
-          'src/js/models/*.js', 
+          'src/js/models/*.js',
           'src/js/collections/*.js',
           'src/js/views/*.js',
           'src/js/app.js',

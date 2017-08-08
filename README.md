@@ -1,44 +1,90 @@
 # Video Game Inventory
 
-It's an application that primarily uses [Slim](http://www.slimframework.com), [RedBean](http://www.redbeanphp.com/), [Backbone.js](http://backbonejs.org), and [DataTables](https://www.datatables.net/) to report on and manage my video game inventory.  Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing a robust and comprehensive API free of charge.
+It's a responsive web application that reports on and manages my video game catalog primarily using:
+- [Slim](http://www.slimframework.com)
+- [RedBean](http://www.redbeanphp.com/),
+- [Backbone.js](http://backbonejs.org), and
+- [DataTables](https://www.datatables.net/)
+
+Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing a robust and comprehensive API free of charge.  Please review their _Terms of Use_.
 
 ## Easy to build & host
 
-##### Create a local clone of the repository
+##### Requirements
 
-    git clone https://github.com/mykisscool/video-game-inventory
+- PHP 5.6
+- MySQL 5.6
+- Sass 3.4
 
-##### Update the RewriteBase directive in `/api/.htaccess`
+##### Create a local clone of this repo
 
-    RewriteBase /relative/path/to/application
+> `git clone https://github.com/mykisscool/video-game-inventory`
 
-##### Use Composer to obtain the Slim Framework and the RedBean PHP ORM
+##### Gather JavaScript and PHP dependencies
 
-    composer update
+> `composer install`
 
-##### Use Bower to obtain JavaScript libraries
+> `npm install`
 
-    bower install
+> `bower install`
 
-##### Use Grunt to build production scripts as well as grabbing some Google fonts
+> `grunt`
 
-    npm install  
-    grunt default
+##### Create an `.env` file with the following variables
 
-##### MySQL setup
+- `APP_PATH`
+- `DEBUG`
+- `DBHOST_MIGRATIONS`
+- `DBHOST_WEB`
+- `DBNAME`
+- `DBPORT`
+- `DBUSER`
+- `DBPASS`
+- `GIANTBOMB_API_KEY`
 
-    mysql -u root -p -e "CREATE DATABASE video_game_inventory"
-    mysql -u root -p video_game_inventory < src/sql/video-game-inventory.sql
+Please note that I've created two similar `DBHOST` variables.  That's because I developed this application on a [Vagrant Homestead box](https://laravel.com/docs/5.4/homestead) and it's a known issue.  If you aren't using Vagrant, you can probably use the same host for both variables.
 
-And don't forget to sign up for your [Giant Bomb API key](https://auth.giantbomb.com/signup)!
+##### Database setup
+
+Create an empty database called `video_game_inventory` and run the following commands:
+
+> `php vendor/bin/phinx migrate`
+
+> `php vendor/bin/phinx seed:run`
+
+Don't forget to sign up for your [Giant Bomb API key](https://auth.giantbomb.com/signup).  Once you have, run the following test to make sure it's working:
+
+> `./vendor/bin/phpunit --filter GiantBombApiResponseTest`
+
+##### Apache and nginx configuration
+
+The REST API was built using [Slim](http://www.slimframework.com).  This application won't work right out of the box- there are some basic configurations required for [nginx and Apache](https://www.slimframework.com/docs/start/web-servers.html).
+
+Note: the default configurations on that page will be altered slightly if you are installing this application in a subdirectory.
+
+You may (or may not) have issues with the fonts used as well.  If you are encountering 404 errors with the fonts or they won't render properly- please refer to [this wiki](https://github.com/fontello/fontello/wiki/How-to-setup-server-to-serve-fonts).
 
 ## Roadmap
 
-1. I'd love to integrate features that could streamline sharing amongst users who host this application (if anyone).
-2. I'd really like to incorporate social media to facilitate sharing and trading.
-3. I'd like to add a little bit more dashboard reporting.
-4. I'll have to lock it down with some user authentication if this web application is ever public-facing.
-5. Tests.
+1. Integrate features that could streamline sharing amongst users who host this application (if anyone).
+2. Incorporate social media to facilitate sharing and trading.
+3. Add a little bit more dashboard reporting.
+4. Lock it down with some user authentication if this web application is ever public-facing.
+5. ~~Tests.~~
+
+## Screenshots
+
+> *Homepage- charts and stuff*
+
+![Screenshot 1](/src/img/screenshot-1.png?raw=true "Homepage- charts and stuff")
+
+> *Interactive catalog*
+
+![Screenshot 2](/src/img/screenshot-2.png?raw=true "Interactive catalog")
+
+> *Adding new games is easy*
+
+![Screenshot 3](/src/img/screenshot-3.png?raw=true "Adding new games is easy")
 
 ## License
 

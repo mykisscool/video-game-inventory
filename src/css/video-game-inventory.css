@@ -4,11 +4,12 @@ body { background:#ececec; font-family:"Lato"; padding-top:70px; }
 .navbar-default { background:#fff688; border:0 none; box-shadow:0 4px 2px -2px rgba(0, 0, 0, 0.2); }
 
 /* Right links */
+#navbar-collapse .navbar-nav i { margin-right:5px; }
 #navbar-collapse .navbar-nav a { color:#333; cursor:pointer; }
 #navbar-collapse .navbar-nav a:hover { background:#fef9bc;  }
 
 /* Collapse icon */
-.navbar-default .navbar-toggle:hover { background:#fef9bc; } 
+.navbar-default .navbar-toggle:hover { background:#fef9bc; }
 .navbar-default .navbar-toggle { border:0 none; }
 .navbar-header .navbar-toggle .icon-bar { background:#333; }
 
@@ -80,14 +81,14 @@ h4 { font-size:16px; margin:0 0 5px; text-shadow:1px 1px 1px rgba(60, 60, 60, 0.
   background-image:linear-gradient(top, #ffb849, #c07602);
 }
 
-#percentage-games-beaten, 
+#percentage-games-beaten,
 #favorite-system-games,
 #favorite-genre-games,
 #last-game-added-date { display:none; font-size:13px; position:absolute; bottom:10px; left:15px; }
 
 /* Row 2 and 3 charts */
 #system-breakdown,
-#genre-breakdown, 
+#genre-breakdown,
 #video-game-timeline { height:420px; }
 .ct-label { font-size:12px; color:#555; }
 .ct-series-a .ct-area { fill:cyan; }
@@ -104,7 +105,7 @@ h4 { font-size:16px; margin:0 0 5px; text-shadow:1px 1px 1px rgba(60, 60, 60, 0.
 .loader-inner div { background:#333; }
 
 /* DataTable for catalog */
-.dataTables_wrapper table thead tr td, 
+.dataTables_wrapper table thead tr td,
 .dataTables_wrapper table thead tr th { border-bottom-width:0; }
 .dataTables_wrapper table tbody td ul li:last-child { padding-bottom:0; }
 #datatable-games caption { padding:0; }

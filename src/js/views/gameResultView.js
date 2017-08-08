@@ -5,7 +5,7 @@ var GameResultView = Backbone.View.extend({
   },
   initialize : function (options) {
     this.parent = options.parent;
-  },  
+  },
   render: function () {
     this.$el.html(Templates.resultRow(this.model.toJSON()));
     return this;
@@ -28,7 +28,9 @@ var GameResultView = Backbone.View.extend({
           results = JSON.parse(response)['results'];
         }
         catch (e) {
-          // @TODO Better error handling for empty JSON response.  Timeout issue?
+          // @TODO Better error handling for empty JSON response.
+          // Timeout issue?
+          // API issue?
           alert('A generic error has occurred.  Please refresh and try again.');
         }
 
@@ -47,7 +49,7 @@ var GameResultView = Backbone.View.extend({
 
         properties.description = ((results.deck === null) ? null : results.deck);
 
-        properties.released_on = ((moment(results.original_release_date).isValid()) 
+        properties.released_on = ((moment(results.original_release_date).isValid())
           ? moment(results.original_release_date).format('YYYY-MM-DD') : null);
 
         // Validate model
@@ -63,7 +65,7 @@ var GameResultView = Backbone.View.extend({
               game.set('id', response.xhr.responseText);
               game.set('image', ((properties.image !== null) ? properties.image.split('/').pop() : null));
               bus.trigger('newGameAdded', game);
-          
+
               // Update parent view
               $('.container-fluid', '#catalog').prepend(Templates.alert({
                 type: 'info',

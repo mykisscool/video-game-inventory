@@ -1,4 +1,4 @@
-Copyright (c) 2016 Michael Petruniak (www.mikepetruniak.com)
+Copyright (c) 2016 Michael Petruniak
 
 The MIT License
 

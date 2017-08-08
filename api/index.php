@@ -1,37 +1,22 @@
-<?php 
-  require_once('../vendor/autoload.php'); 
-  use Slim\Slim;
+<?php
+  require_once('../vendor/autoload.php');
   class_alias('RedBeanPHP\Facade', 'R');
 
-  $vga = new Slim();
-  $vga->config(['debug' => FALSE]);
+  $dotEnv = new Dotenv\Dotenv(dirname(__DIR__));
+  $dotEnv->load();
+
+  $vga = new Slim\Slim();
+  $vga->config(['debug' => getenv('DEBUG')]);
 
   // Hooks
   $vga->hook('slim.before.dispatch', function () {
-
-    $dbhost = 'localhost';
-    $dbname = 'video_game_inventory';
-    $dbuser = 'video_gamer';
-    $dbpass = 'mikeiscool!';
-
-    R::setup("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+    R::setup('mysql:host=' . getenv('DBHOST_WEB') . ';dbname=' . getenv('DBNAME') .
+      ';port=' . getenv('DBPORT'), getenv('DBUSER'), getenv('DBPASS'));
   });
-  
+
   $vga->hook('slim.after.dispatch', function () {
     R::close();
   });
-
-  $vga->image_path = '../src/img/';
-
-  // Giant Bomb API variables
-  $vga->giantbomb = new stdClass;
-  $vga->giantbomb->api_key = 'Your Giant Bomb API Key goes here.';
-  $vga->giantbomb->format = 'json';
-  $vga->giantbomb->search_endpoint = 'http://www.giantbomb.com/api/search/';
-  $vga->giantbomb->game_endpoint = 'http://www.giantbomb.com/api/game/';
-  $vga->giantbomb->image_endpoint = 'http://static.giantbomb.com';
-  $vga->giantbomb->search_field_list = 'id,name,original_release_date,platforms';
-  $vga->giantbomb->game_field_list = 'deck,image,name,original_release_date,platforms,developers,genres';
 
   // Override routes
   $vga->notFound(function () {
@@ -47,26 +32,28 @@
   });
 
   // GiantBomb API route: Search
-  $vga->get('/giantbomb/search/:query', function ($query) use ($vga) {
+  $vga->get('/giantbomb/search/:query', function ($query) {
 
-    $url = $vga->giantbomb->search_endpoint .
-      '?api_key=' . $vga->giantbomb->api_key . 
-      '&field_list=' . $vga->giantbomb->search_field_list . 
-      '&format=' . $vga->giantbomb->format .
-      '&query=' . urlencode('"' . $query . '"');
+    $params = [
+      'api_key' => getenv('GIANTBOMB_API_KEY'),
+      'field_list' => 'id,name,original_release_date,platforms',
+      'format' => 'json',
+      'query' => '"' . $query . '"'
+    ];
 
-    echo getAPIResponse($url);
+    echo getAPIResponse('search', $params);
   });
 
-  // GiantBomb API route: View game
-  $vga->get('/giantbomb/get/:id', function ($id) use ($vga) {
+  // GiantBomb API route: Game
+  $vga->get('/giantbomb/get/:id', function ($id) {
 
-    $url = $vga->giantbomb->game_endpoint . "$id/" .
-      '?api_key=' . $vga->giantbomb->api_key . 
-      '&field_list=' . $vga->giantbomb->game_field_list . 
-      '&format=' . $vga->giantbomb->format;
+    $params = [
+      'api_key' => getenv('GIANTBOMB_API_KEY'),
+      'field_list' => 'deck,image,name,original_release_date,platforms,developers,genres',
+      'format' => 'json'
+    ];
 
-    echo getAPIResponse($url);
+    echo getAPIResponse("game/$id", $params);
   });
 
   // View all games
@@ -78,26 +65,26 @@
   $vga->post('/games', function () use ($vga) {
 
     $game = R::dispense('game');
-    $game->import(json_decode(file_get_contents('php://input'), TRUE));
+    $game->import(json_decode(file_get_contents('php://input'), true));
 
     // Check for duplicate
     if (0 === R::count('game', 'title = ? AND system = ?', [$game->title, $game->system])) :
 
-      $game->created_at = NULL;
-      $game->updated_at = NULL;
+      $game->created_at = null;
+      $game->updated_at = null;
 
       if (filter_var($game->image, FILTER_VALIDATE_URL)) :
-        
+
         // Retain state of URL
         $filename = urldecode(basename($game->image));
         $url = urldecode($game->image);
-        
+
         // Update image
         $game->image = $filename;
-        
+
         $id = (int) R::store($game);
 
-        if (! downloadAndSaveFile($vga->image_path . $id . '/' . $filename, $url)) :
+        if (! downloadAndSaveFile($id . '/' . $filename, $url)) :
           // @TODO If the image did not download- update the database and filesystem accordingly
         endif;
 
@@ -115,28 +102,28 @@
   $vga->put('/games/:id', function ($id) {
 
     $game = R::load('game', $id);
-    $data = json_decode(file_get_contents('php://input'), TRUE);
-    
+    $data = json_decode(file_get_contents('php://input'), true);
+
     // @TODO These amount of variables I'm dealing with needs to change should I
     // decide to update more or all columns
     $game->import($data, 'notes,completed');
-    
+
     unset($game->updated_at); // Allow MySQL to update the TIMESTAMP on this column
 
     R::store($game);
   });
 
   // Delete game
-  $vga->delete('/games/:id', function ($id) use ($vga) {
+  $vga->delete('/games/:id', function ($id) {
     $game = R::load('game', $id);
 
     // Remove image
-    $folder = $vga->image_path . $game->id;
-    $image = $folder . '/' . $game->image;
+    $fullPath = dirname(realpath(dirname(__FILE__))) . getenv('APP_PATH') . 'src/img/' . $game->id;
+    $image = $fullPath . '/' . $game->image;
 
-    if (is_dir($folder) && is_file($image)) :
+    if (is_dir($fullPath) && is_file($image)) :
       unlink($image);
-      rmdir($folder);
+      rmdir($fullPath);
     endif;
 
     R::trash($game);
@@ -169,7 +156,7 @@ EOD;
     $favorite_system_data = R::getRow($favorite_system_sql);
 
     // Set default state of application if no games are added yet
-    if (NULL === $favorite_system_data) :
+    if (null === $favorite_system_data) :
       $data->favorite_system_games = 0;
       $data->favorite_system = '-';
     else :
@@ -187,7 +174,7 @@ EOD;
     $last_game_data = R::getRow($last_game_added_sql);
 
     // Set default state of application if no games are added yet
-    if (NULL === $last_game_data) :
+    if (null === $last_game_data) :
       $data->last_game_added = '-';
       $data->last_game_added_date = '';
     else :
@@ -222,7 +209,7 @@ EOD;
     endif;
 
     echo json_encode($data);
-  });  
+  });
 
   // Dashboard: Genres chart data
   $vga->get('/dashboard/genres', function () {
@@ -231,7 +218,7 @@ EOD;
 SELECT genre
 FROM game
 WHERE genre != ''
-AND genre IS NOT NULL
+AND genre IS NOT null
 EOD;
     $genres = R::getCol($sql);
 
@@ -249,7 +236,7 @@ EOD;
     endforeach;
 
     // Return top 15 results
-    $genres_counted = array_slice($genres_counted, 0, 15, TRUE);
+    $genres_counted = array_slice($genres_counted, 0, 15, true);
     arsort($genres_counted);
 
     $data = new stdClass;
@@ -262,7 +249,7 @@ EOD;
     endforeach;
 
     echo json_encode($data);
-  });  
+  });
 
   // Dashboard: Systems chart data
   $vga->get('/dashboard/systems', function () {
@@ -284,7 +271,7 @@ EOD;
       $data->labels[] = $result['system'];
     endforeach;
 
-    echo json_encode($data);    
+    echo json_encode($data);
   });
 
   // Dashboard: Timeline chart data
@@ -320,52 +307,47 @@ EOD;
 
   $vga->run();
 
-  // Wrappers for cURL requests
-  function getAPIResponse ($url) {
+  // Wrappers for API requests
+  function getAPIResponse ($endpoint, $params) {
 
-    $ch = curl_init();
-
-    curl_setopt_array($ch, [
-      CURLOPT_SSL_VERIFYPEER => FALSE,
-      CURLOPT_RETURNTRANSFER => TRUE,
-      CURLOPT_TIMEOUT => 20,
-      CURLOPT_URL => $url,
-      CURLOPT_CONNECTTIMEOUT => 20,
-      CURLOPT_USERAGENT => 'Video Game Inventory by mykisscool' // Otherwise GiantBomb will think you are a scraper
+    $client = new GuzzleHttp\Client([
+      'base_uri' => 'https://www.giantbomb.com/api/'
     ]);
 
-    $response = curl_exec($ch);
-    curl_close($ch);
+    $response = $client->get($endpoint, [
+      'timeout' => 20,
+      'connect_timeout' => 20,
+      'headers' => [
+        'User-Agent' => 'Video Game Inventory by mykisscool'
+      ],
+      'query' => $params
+    ]);
 
-    return $response;
+    return $response->getBody();
   }
 
-  function downloadAndSaveFile ($path, $url) {
+  function downloadAndSaveFile ($localPath, $imageUrl) {
 
-    if (! is_dir(dirname($path))) :
-      mkdir(dirname($path), 0755, TRUE);
+    $fullPath = dirname(realpath(dirname(__FILE__))) . getenv('APP_PATH') . 'src/img/' . $localPath;
+    $client = new GuzzleHttp\Client();
+
+    if (! is_dir(dirname($fullPath))) :
+      mkdir(dirname($fullPath), 0755, true);
     endif;
 
-    $fp = fopen($path, 'w+');
-    $ch = curl_init();
+    try {
+      $response = $client->get(str_replace(' ', '%20', $imageUrl), [
+        'timeout' => 20,
+        'connect_timeout' => 20,
+        'headers' => [
+          'User-Agent' => 'Video Game Inventory by mykisscool'
+        ],
+        'save_to' => fopen($fullPath, 'w+')
+      ]);
 
-    curl_setopt_array($ch, [
-      CURLOPT_SSL_VERIFYPEER => FALSE,
-      CURLOPT_RETURNTRANSFER => FALSE,
-      CURLOPT_BINARYTRANSFER => TRUE,
-      CURLOPT_TIMEOUT => 20,
-      CURLOPT_CONNECTTIMEOUT => 20,
-      CURLOPT_URL => str_replace(' ', '%20', $url),
-      CURLOPT_FILE => $fp,
-      CURLOPT_USERAGENT => 'Video Game Inventory by mykisscool' // Otherwise GiantBomb will think you are a scraper
-    ]);
-
-    curl_exec($ch);
-
-    $return = ((curl_errno($ch)) ? FALSE : TRUE);
-
-    curl_close($ch);
-    fclose($fp);
-
-    return $return;
+      return true;
+    }
+    catch (Exception $e) {
+      return false;
+    }
   }

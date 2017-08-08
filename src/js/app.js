@@ -6,12 +6,12 @@ if (document.getElementById('dashboard')) {
   $.getJSON('api/dashboard/widgets', function (response) {
 
     var count_options = {
-      useEasing: true, 
-      useGrouping: true, 
-      separator: ',', 
-      decimal: '.', 
-      prefix: '', 
-      suffix: '' 
+      useEasing: true,
+      useGrouping: true,
+      separator: ',',
+      decimal: '.',
+      prefix: '',
+      suffix: ''
     };
 
     // Number of Games
@@ -90,7 +90,7 @@ if (document.getElementById('dashboard')) {
     new Chartist.Bar('#genre-breakdown', {
       labels: response.labels,
       series: response.series
-    }, 
+    },
     {
       distributeSeries: true,
       seriesBarDistance: 10,
@@ -105,7 +105,7 @@ if (document.getElementById('dashboard')) {
       },
       axisX: {
         onlyInteger: true,
-      }    
+      }
     });
 
     $('h4 i', '#genre-breakdown-box').fadeOut(250);
@@ -117,7 +117,7 @@ if (document.getElementById('dashboard')) {
     new Chartist.Bar('#system-breakdown', {
       labels: response.labels,
       series: response.series
-    }, 
+    },
     {
       distributeSeries: true,
       seriesBarDistance: 10,
@@ -128,7 +128,7 @@ if (document.getElementById('dashboard')) {
         showGrid: false,
         labelInterpolationFnc: function (value, index) {
           return ((value.length <= 15) ? value : value.substr(0, 15) + '...');
-        }        
+        }
       },
       axisX: {
         onlyInteger: true
@@ -169,7 +169,7 @@ if (document.getElementById('dashboard')) {
           }
         }
       }
-    }, 
+    },
     [
       ['screen and (max-width: 1199px)', {
         axisX: {
@@ -180,7 +180,7 @@ if (document.getElementById('dashboard')) {
             return index % 2  === 0 ? value : null;
           }
         }
-      }],      
+      }],
       ['screen and (max-width: 991px)', {
         axisX: {
           labelInterpolationFnc: function (value, index) {
@@ -214,7 +214,7 @@ if (document.getElementById('catalog')) {
 
   Handlebars.registerHelper('prettyDate', function (date) {
     if (moment(date).isValid()) {
-      return '<span class="hidden">' + moment(date).format('YYYYMMDDHHmmss') + '</span>' 
+      return '<span class="hidden">' + moment(date).format('YYYYMMDDHHmmss') + '</span>'
         + moment(date).format('MMM. Do, YYYY');
     }
     else {
@@ -230,7 +230,7 @@ if (document.getElementById('catalog')) {
     for (var i=0; i < a.length; i++) {
       a[i] = a[i].replace(/\|\|/g, ', ');
     }
-    
+
     if (a.length > 1) {
       var h = '<ol>';
       _.each(a, function (g) {
