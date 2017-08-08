@@ -10,17 +10,17 @@ Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing
 
 ## Easy to build & host
 
-##### Requirements
+#### Requirements
 
 - PHP 5.6
 - MySQL 5.6
 - Sass 3.4
 
-##### Create a local clone of this repo
+#### Create a local clone of this repo
 
 > `git clone https://github.com/mykisscool/video-game-inventory`
 
-##### Gather JavaScript and PHP dependencies
+#### Gather JavaScript and PHP dependencies
 
 > `composer install`
 
@@ -30,7 +30,7 @@ Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing
 
 > `grunt`
 
-##### Create an `.env` file with the following variables
+#### Create an `.env` file with the following variables
 
 - `APP_PATH`
 - `DEBUG`
@@ -44,7 +44,7 @@ Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing
 
 Please note that I've created two similar `DBHOST` variables.  That's because I developed this application on a [Vagrant Homestead box](https://laravel.com/docs/5.4/homestead) and it's a known issue.  If you aren't using Vagrant, you can probably use the same host for both variables.
 
-##### Database setup
+#### Database setup
 
 Create an empty database called `video_game_inventory` and run the following commands:
 
@@ -56,7 +56,7 @@ Don't forget to sign up for your [Giant Bomb API key](https://auth.giantbomb.com
 
 > `./vendor/bin/phpunit --filter GiantBombApiResponseTest`
 
-##### Apache and nginx configuration
+#### Apache and nginx configuration
 
 The REST API was built using [Slim](http://www.slimframework.com).  This application won't work right out of the box- there are some basic configurations required for [nginx and Apache](https://www.slimframework.com/docs/start/web-servers.html).
 
