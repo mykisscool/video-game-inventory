@@ -20,15 +20,11 @@ Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing
 
 > `git clone https://github.com/mykisscool/video-game-inventory`
 
-#### Gather JavaScript and PHP dependencies
+#### Gather PHP and JavaScript dependencies
 
 > `composer install`
 
 > `npm install`
-
-> `bower install`
-
-> `grunt`
 
 #### Create an `.env` file with the following variables
 

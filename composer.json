@@ -15,5 +15,11 @@
     "robmorgan/phinx": "^0.8.1",
     "slim/slim": "^2.6",
     "vlucas/phpdotenv": "^2.4"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php vendor/bin/phinx migrate",
+      "php vendor/bin/phinx seed:run"
+    ]
   }
 }
