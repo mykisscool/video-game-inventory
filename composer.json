@@ -24,8 +24,9 @@
   },
   "extra": {
     "heroku": {
+      "framework": "slim",
       "document-root": "api",
-      "index-document": "index.php"
+      "index-document": "api/index.php"
     }
   }
 }
