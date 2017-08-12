@@ -1,7 +1,11 @@
 <?php
   require_once(dirname(__DIR__) . '/vendor/autoload.php');
-  $dotenv = new Dotenv\Dotenv(dirname(__DIR__));
-  $dotenv->load();
+
+  if (file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env')) {
+      $dotEnv = new Dotenv\Dotenv(dirname(__DIR__));
+      $dotEnv->load();
+  }
+
   define('APP_PATH', getenv('APP_PATH'));
 ?>
 <!doctype html>

@@ -2,8 +2,10 @@
   require_once('../vendor/autoload.php');
   class_alias('RedBeanPHP\Facade', 'R');
 
-  $dotEnv = new Dotenv\Dotenv(dirname(__DIR__));
-  $dotEnv->load();
+  if (file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env')) {
+      $dotEnv = new Dotenv\Dotenv(dirname(__DIR__));
+      $dotEnv->load();
+  }
 
   $vga = new Slim\Slim();
   $vga->config(['debug' => getenv('DEBUG')]);

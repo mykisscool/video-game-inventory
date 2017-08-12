@@ -14,19 +14,22 @@ Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing
 
 - PHP 5.6
 - MySQL 5.6
+- Ruby 2.0
 - Sass 3.4
 
 #### Create a local clone of this repo
 
 > `git clone https://github.com/mykisscool/video-game-inventory`
 
-#### Gather PHP and JavaScript dependencies
+#### Gather dependencies
 
 > `composer install`
 
 > `npm install`
 
-#### Create an `.env` file with the following variables
+> `bundle install`
+
+#### Create an `.env` file with the following variables (or create environment variables)
 
 - `APP_PATH`
 - `DEBUG`

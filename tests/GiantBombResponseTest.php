@@ -6,8 +6,10 @@ class GiantBombApiResponseTest extends PHPUnit_Framework_TestCase
 
   public function __construct()
   {
-    $dotenv = new Dotenv\Dotenv(dirname(__DIR__));
-    $dotenv->load();
+    if (file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env')) {
+        $dotEnv = new Dotenv\Dotenv(dirname(__DIR__));
+        $dotEnv->load();
+    }
   }
 
   public function setUp()
