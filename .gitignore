@@ -5,11 +5,8 @@ dist
 fonts
 src/css/*.styl
 src/css/responsive.*
-src/img/*/*
+src/img/*
 !src/img/screenshot-*
-!src/img/1/2362278-nes_supermariobrosduckhunt_2.jpg
-!src/img/2/2550128-primeclean.jpg
-!src/img/3/643367-baldur_s_gate_ii___shadow_of_amn_boxart.jpg
 src/js/templates.js
 .sass-cache
 .env

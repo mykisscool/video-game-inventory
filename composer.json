@@ -21,12 +21,5 @@
       "php vendor/bin/phinx migrate",
       "php vendor/bin/phinx seed:run"
     ]
-  },
-  "extra": {
-    "heroku": {
-      "framework": "slim",
-      "document-root": "api",
-      "index-document": "api/index.php"
-    }
   }
 }
