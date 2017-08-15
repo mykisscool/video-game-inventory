@@ -21,14 +21,6 @@ Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing
 
 > `git clone https://github.com/mykisscool/video-game-inventory`
 
-#### Gather dependencies
-
-> `composer install`
-
-> `npm install`
-
-> `bundle install`
-
 #### Create an `.env` file with the following variables (or create environment variables)
 
 - `APP_PATH`
@@ -43,13 +35,9 @@ Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing
 
 Please note that I've created two similar `DBHOST` variables.  That's because I developed this application on a [Vagrant Homestead box](https://laravel.com/docs/5.4/homestead) and it's a known issue.  If you aren't using Vagrant, you can probably use the same host for both variables.
 
-#### Database setup
+#### Database setup and dependencies
 
-Create an empty database called `video_game_inventory` and run the following commands:
-
-> `php vendor/bin/phinx migrate`
-
-> `php vendor/bin/phinx seed:run`
+Create an empty database called `video_game_inventory` and run `composer install`.  This will create and seed your database as well as gather all project dependencies.
 
 Don't forget to sign up for your [Giant Bomb API key](https://auth.giantbomb.com/signup).  Once you have, run the following test to make sure it's working:
 
