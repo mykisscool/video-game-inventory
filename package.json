@@ -25,6 +25,7 @@
     "node": ">=8.1.2"
   },
   "scripts": {
+    "preinstall": "rm -rf bower_components dist fonts node_modules vendor",
     "postinstall": "bower install && grunt"
   }
 }
