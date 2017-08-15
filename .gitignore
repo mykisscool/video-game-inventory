@@ -6,6 +6,7 @@ fonts
 src/css/*.styl
 src/css/responsive.*
 src/img/*
+!src/img/demo
 !src/img/screenshot-*
 src/js/templates.js
 .sass-cache

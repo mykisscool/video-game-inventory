@@ -37,7 +37,13 @@ Please note that I've created two similar `DBHOST` variables.  That's because I 
 
 #### Database setup and dependencies
 
-Create an empty database called `video_game_inventory` and run `composer install`.  This will create and seed your database as well as gather all project dependencies.
+Create an empty database called `video_game_inventory` and run:
+
+> `npm install`
+
+> `composer install`
+
+This will create and seed your database as well as gather all project dependencies.
 
 Don't forget to sign up for your [Giant Bomb API key](https://auth.giantbomb.com/signup).  Once you have, run the following test to make sure it's working:
 
