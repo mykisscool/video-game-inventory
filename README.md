@@ -8,6 +8,10 @@ It's a responsive web application that reports on and manages my video game cata
 
 Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing a robust and comprehensive API free of charge.  Please review their _Terms of Use_.
 
+## Easy to use
+
+[DEMO](https://video-game-inventory.herokuapp.com/)
+
 ## Easy to build & host
 
 #### Requirements
@@ -37,7 +41,7 @@ Please note that I've created two similar `DBHOST` variables.  That's because I 
 
 #### Database setup and dependencies
 
-Create an empty database called `video_game_inventory` and run:
+Create an empty database called `video_game_inventory` (or whatever the value for `DBNAME` is) and run:
 
 > `npm install`
 
