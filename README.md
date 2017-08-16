@@ -41,6 +41,10 @@ Please note that I've created two similar `DBHOST` variables.  That's because I 
 
 #### Database setup and dependencies
 
+If you don't have SASS installed, you'll need to run the following command:
+
+> `bundle install`
+
 Create an empty database called `video_game_inventory` (or whatever the value for `DBNAME` is) and run:
 
 > `npm install`
@@ -55,9 +59,7 @@ Don't forget to sign up for your [Giant Bomb API key](https://auth.giantbomb.com
 
 #### Apache and nginx configuration
 
-The REST API was built using [Slim](http://www.slimframework.com).  This application won't work right out of the box- there are some basic configurations required for [nginx and Apache](https://www.slimframework.com/docs/start/web-servers.html).
-
-Note: the default configurations on that page will be altered slightly if you are installing this application in a subdirectory.
+The REST API was built using [Slim](http://www.slimframework.com).  This application won't work right out of the box- there are some basic configurations required for [nginx and Apache](https://www.slimframework.com/docs/start/web-servers.html).  The configurations will be altered slightly if you are installing this application in a subdirectory.
 
 You may (or may not) have issues with the fonts used as well.  If you are encountering 404 errors with the fonts or they won't render properly- please refer to [this wiki](https://github.com/fontello/fontello/wiki/How-to-setup-server-to-serve-fonts).
 
