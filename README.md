@@ -41,7 +41,7 @@ Please note that I've created two similar `DBHOST` variables.  That's because I 
 
 #### Database setup and dependencies
 
-If you don't have SASS installed, you'll need to run the following command:
+If you don't have Sass installed, you'll need to run the following command:
 
 > `bundle install`
 

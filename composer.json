@@ -18,12 +18,12 @@
   },
   "scripts": {
     "pre-install-cmd": [
-      "rm -rf 1 2 3 bower_components dist fonts node_modules vendor"
+      "rm -rf bower_components dist fonts node_modules vendor"
     ],
     "post-install-cmd": [
       "php vendor/bin/phinx migrate",
       "php vendor/bin/phinx seed:run -s VideoGameSeeder",
-      "cp -r ./src/img/demo/* ./src/img"
+      "cd ./src/img && find . -maxdepth 1 -type d -not -name 'demo' -not -name '.*' -print0 -exec rm -rf {} + && cp -r ./demo/* ."
     ]
   }
 }

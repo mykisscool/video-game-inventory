@@ -49,5 +49,8 @@ class VideoGameSeeder extends AbstractSeed
       $game
         ->insert($data)
         ->save();
+
+      $nextID = count($data) +1;
+      $this->execute("ALTER TABLE game AUTO_INCREMENT = $nextID");
     }
 }
