@@ -1,16 +1,17 @@
 # Video Game Inventory
 
 It's a responsive web application that reports on and manages my video game catalog primarily using:
+- [Backbone.js](http://backbonejs.org),
+- [DataTables](https://www.datatables.net/), and
 - [Slim](http://www.slimframework.com)
-- [RedBean](http://www.redbeanphp.com/),
-- [Backbone.js](http://backbonejs.org), and
-- [DataTables](https://www.datatables.net/)
 
 Shout-out to [Giant Bomb](http://www.giantbomb.com/api) for generously providing a robust and comprehensive API free of charge.  Please review their _Terms of Use_.
 
 ## Easy to use
 
 [DEMO](https://video-game-inventory.herokuapp.com/)
+
+Data is refreshed every evening.  Test it out and have fun.
 
 ## Easy to build & host
 
