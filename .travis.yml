@@ -1,0 +1,26 @@
+language: php
+
+php:
+   - 5.6
+   - 7.0
+   - 7.1
+   - hhvm
+   - nightly
+
+sudo: false
+
+cache:
+   directories:
+      - vendor
+
+branches:
+   only:
+      - master
+
+notifications:
+   email: true
+
+install:
+   - composer install --no-dev --quiet
+
+script: phpunit -c phpunit.xml --coverage-text

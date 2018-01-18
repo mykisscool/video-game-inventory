@@ -31,7 +31,7 @@ class GiantBombApiResponseTest extends PHPUnit_Framework_TestCase
         'api_key' => getenv('GIANTBOMB_API_KEY'),
         'format' => 'json',
         'fields' => 'id,name,original_release_date,platforms',
-        'query' => 'Mario' // ¯\_(ツ)_/¯
+        'query' => 'Mega Man 4'
       ]
     ]);
 

@@ -1,4 +1,4 @@
-# Video Game Inventory
+# Video Game Inventory [![Build Status](https://travis-ci.org/mykisscool/video-game-inventory.svg?branch=master)](https://travis-ci.org/mykisscool/video-game-inventory)
 
 It's a responsive web application that reports on and manages my video game catalog primarily using:
 - [Backbone.js](http://backbonejs.org),
