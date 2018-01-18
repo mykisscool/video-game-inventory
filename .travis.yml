@@ -7,6 +7,9 @@ php:
    - hhvm
    - nightly
 
+services:
+   - mysql
+
 sudo: false
 
 cache:
@@ -19,6 +22,9 @@ branches:
 
 notifications:
    email: true
+
+before_install:
+   - mysql -e 'CREATE DATABASE video_game_inventory;'
 
 install:
    - composer install --no-dev --quiet
