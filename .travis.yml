@@ -27,4 +27,4 @@ before_install:
 - mysql -e 'CREATE DATABASE video_game_inventory;'
 install:
 - composer install --no-dev --quiet
-script: phpunit -c phpunit.xml --coverage-text
+script: phpunit -c phpunit.xml
