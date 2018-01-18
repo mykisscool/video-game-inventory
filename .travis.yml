@@ -3,11 +3,9 @@ php:
 - 5.6
 - 7.0
 - 7.1
-- hhvm
 - nightly
 services:
 - mysql
-sudo: false
 env:
   global:
   - secure: HfFmc5OLHyB+aiKjB15kiqAqegkW2e/uqKzXeK8c7pVI1fwpVzEmWh7l86JlGM86ZRINF/d5X5wpAIDmnNzTTuQF/a6u0KUyU+R7hGz+Z62a21Jso8zqOlPCzfNSvnKVSUCL8ymDkWe3/DeRq+qagWrfnCa0CO1jb83crtY6JtdQewpnzAP5UbxVif+MGlJJbp80c/JvloQ5mo0O+6yeA95gB3hiP1zu4iraG6oZscGPM6zxhVmYWMCiGO1XpbrY7+Tkc65vhrvfBzCEoXwrhts4dvlObVrtHlj4/4+l7TMZCbY+0+Sy43jIbVSMCTJ4SxTSdTMMvhrgth/0EQX1ndvo62+Eu1xQuIBMo7gq+T/zo6UOBjFXmBY9w3lLPgPvXIsA3NimzxDY0Ob+5KX5U8tA+vHkOI+gXHe/S/NXuy4MID10AeftJXM+lsOsAQPwEKVTI4vtDwjb1vTyUF4Pn1aQE+eCIt7tGTS9+g7LqCny8VYKsrE1oyHP+P8jCJST4b4nOA2mgQnN0iicHqbSeOVgdTKLU5XkN+XIyLPjKKjmt7RIaBtimkrN3UNHQDnpypMLFzSf6vrdFhRud/m8U9Y/2WcgAvUhVMEs8My9hk9/LRbj3fYkB4p9Z24gMdwgMJoPqllyFgH1DODSVzNni2ApU22JJyv/mkiq8Ng/Nio=
