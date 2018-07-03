@@ -19,7 +19,8 @@
     "grunt-contrib-uglify": "^3.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-local-googlefont": "^0.2.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "hoek": "~> 4.2.1"
   },
   "engines": {
     "node": ">=8.1.2"
