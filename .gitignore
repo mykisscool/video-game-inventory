@@ -12,3 +12,4 @@ src/js/templates.js
 .sass-cache
 .env
 .DS_Store
+.idea

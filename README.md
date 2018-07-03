@@ -1,4 +1,5 @@
-# Video Game Inventory [![Build Status](https://travis-ci.org/mykisscool/video-game-inventory.svg?branch=master)](https://travis-ci.org/mykisscool/video-game-inventory)
+# Video Game Inventory
+[![Build Status](https://travis-ci.org/mykisscool/video-game-inventory.svg?branch=master)](https://travis-ci.org/mykisscool/video-game-inventory)
 
 It's a responsive web application that reports on and manages my video game catalog primarily using:
 - [Backbone.js](http://backbonejs.org),
@@ -26,7 +27,7 @@ Data is refreshed every evening.  Test it out and have fun.
 
 > `git clone https://github.com/mykisscool/video-game-inventory`
 
-#### Create an `.env` file with the following variables (or create environment variables)
+#### Create the following environment variables
 
 - `APP_PATH`
 - `DEBUG`
@@ -38,7 +39,7 @@ Data is refreshed every evening.  Test it out and have fun.
 - `DBPASS`
 - `GIANTBOMB_API_KEY`
 
-Please note that I've created two similar `DBHOST` variables.  That's because I developed this application on a [Vagrant Homestead box](https://laravel.com/docs/5.4/homestead) and it's a known issue.  If you aren't using Vagrant, you can probably use the same host for both variables.
+Please note that I've created two similar `DBHOST` variables.  That's because I developed this application on a [Vagrant Homestead box](https://laravel.com/docs/5.4/homestead) and migrations run directly on the database host and not the web host.  If you aren't using Vagrant, you can probably use the same host for both variables.
 
 #### Database setup and dependencies
 
@@ -48,9 +49,9 @@ If you don't have Sass installed, you'll need to run the following command:
 
 Create an empty database called `video_game_inventory` (or whatever the value for `DBNAME` is) and run:
 
-> `npm install`
-
 > `composer install`
+
+> `npm install`
 
 This will create and seed your database as well as gather all project dependencies.
 
