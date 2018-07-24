@@ -20,7 +20,8 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-local-googlefont": "^0.2.0",
     "underscore": "^1.8.3",
-    "hoek": "~> 4.2.1"
+    "hoek": "~> 4.2.1",
+    "tough-cookie": "~> 2.3.3"
   },
   "engines": {
     "node": ">=8.1.2"
