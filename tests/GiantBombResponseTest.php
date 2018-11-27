@@ -3,7 +3,7 @@
 class GiantBombApiResponseTest extends PHPUnit\Framework\TestCase
 {
   private $client;
-  
+
   public function setUp()
   {
     if (file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env')) {
@@ -30,7 +30,7 @@ class GiantBombApiResponseTest extends PHPUnit\Framework\TestCase
         'User-Agent' => 'Video Game Inventory by mykisscool'
       ],
       'query' => [
-        'api_key' => getenv('GIANTBOMB_API_KEY'),
+        'api_key' => "test",
         'format' => 'json',
         'fields' => 'id,name,original_release_date,platforms',
         'query' => 'Mega Man 4'
