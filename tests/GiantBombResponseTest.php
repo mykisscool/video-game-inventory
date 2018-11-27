@@ -4,23 +4,15 @@ class GiantBombApiResponseTest extends PHPUnit\Framework\TestCase
 {
   private $client;
 
-  public static function setupBeforeClass()
-  {
-    if (file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env')) {
-        $dotEnv = new Dotenv\Dotenv(dirname(__DIR__));
-        $dotEnv->load();
-    }
-  }
-
   public function setUp()
   {
+    if (file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env')) {
+      $dotEnv = new Dotenv\Dotenv(dirname(__DIR__));
+      $dotEnv->load();
+    }
+
     $this->client = new GuzzleHttp\Client([
-      'base_uri' => 'https://www.giantbomb.com/api/',
-      [
-          'curl' => [
-              CURLOPT_SSL_VERIFYPEER => false
-          ]
-      ]
+      'base_uri' => 'https://www.giantbomb.com/api/'
     ]);
   }
 
