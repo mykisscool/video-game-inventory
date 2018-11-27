@@ -1,5 +1,7 @@
 <?php
 
+require_once('vendor/autoload.php'); // For Travis (bootstrap not working at the moment)
+
 class GiantBombApiResponseTest extends PHPUnit_Framework_TestCase
 {
   private $client;
