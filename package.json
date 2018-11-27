@@ -8,7 +8,7 @@
   "author": "Mike Petruniak <mike.petruniak@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "grunt": "^1.0.1",
+    "grunt": "^1.0.3",
     "grunt-bower-concat": "^1.0.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
@@ -17,10 +17,14 @@
     "grunt-contrib-handlebars": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^3.0.1",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-local-googlefont": "^0.2.0",
-    "underscore": "^1.8.3",
-    "hoek": "~> 4.2.1"
+    "hoek": "~> 4.2.1",
+    "install": "^0.12.2",
+    "npm": "^6.4.1",
+    "sshpk": "^1.15.2",
+    "tough-cookie": "~> 2.3.3",
+    "underscore": "^1.8.3"
   },
   "engines": {
     "node": ">=8.1.2"
