@@ -1,7 +1,7 @@
 language: php
 php:
-- 7.0
 # Workaround for Travis CI SSL issues
+#- 7.0
 #- 7.1
 - nightly
 services:
