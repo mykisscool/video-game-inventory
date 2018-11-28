@@ -5,7 +5,8 @@ php:
 - nightly
 services:
 - mysql
-sudo: false
+sudo: required
+dist: trusty
 env:
   global:
   - secure: o4kXRrzKOl3eGtA+pegFXSDGU53V0DweLQNVcnAbe+0Fc0IoX//cN+l/T+nXqe6pQzUSmmQZJh4LccTBwOZzlI/ksaft8+EtfmsVu/tVbTeDdxoWrWZlgtJJA/JQGUPmKSc/el2wolEz1vwEPM00b4vA027KtheqYoG0MzvtDa6jS+I58LWRbdUdtJiN3l/PZz+WCkxNN7YxkgkzYKmFJI1J7XO5knJExJ8f2NW21sPobTmqBXiBEmWY7yGFtAmkTdeyNbbVdMYpwmCtY5SqZNvKz1WrohYfLZNWe32vvUed7g5f/ZbtpBdOMR42XaA7KQn/kqBJUMFkYThIvqz/MiJ/nj+RMoRh/hjnrENLTWyJV2871WB0yO6vLT9OebKTEf2wIkRpDUD/jpx3Haud7jbpcdZgLZzeYtfqa3LPYJ+AEhF5Anhw31tJnNV5N9RyMElDuxFLdXrMWsO7DcCwrCVcdKJJ6xfEaM2bt9ApTH47nClC1GL0+GXlNA7NrG9dBJd24LS5kvYSpVHWXOOOfQ0DQTUwDR0IREnO6FyJUXEFZT7IjTtirlcRigj42B5ayNsR+7hZSDYP6ACuo+ON+Tmlr5aY0NrtbIh1IAOuvGFa/CGOGPsYXO4G4XimF1wRQDrzoGTdOgR3/t7d0nwbJHO6plzdmji/PxtyDfx9GyY=
@@ -21,6 +22,7 @@ notifications:
   email: true
 before_install:
 - mysql -e 'CREATE DATABASE video_game_inventory;'
+- sudo apt-get -y install git zip php5-cli php5-curl
 install:
 - composer install --no-dev --quiet
 script: phpunit -c phpunit.xml
