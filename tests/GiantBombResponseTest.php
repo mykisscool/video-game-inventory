@@ -17,7 +17,7 @@ class GiantBombApiResponseTest extends PHPUnit\Framework\TestCase
     $this->client = new GuzzleHttp\Client([
       'base_uri' => 'https://www.giantbomb.com/api/',
       'curl' => [
-        CURLOPT_SSLVERSION => CURL_SSLVERSION_SSLv3
+        CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2
       ]
     ]);
   }
