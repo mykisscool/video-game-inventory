@@ -15,6 +15,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" media="screen" type="text/css" href="<?php echo APP_PATH; ?>dist/video-game-inventory.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142383298-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-142383298-2');
+  </script>
 </head>
 <body>
   <header>
