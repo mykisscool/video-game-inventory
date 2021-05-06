@@ -24,7 +24,7 @@
     "npm": "^6.4.1",
     "sshpk": "^1.15.2",
     "tough-cookie": "~> 2.3.3",
-    "underscore": "^1.8.3"
+    "underscore": "^1.12.1"
   },
   "engines": {
     "node": ">=8.1.2"
